@@ -1,0 +1,161 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.opentext.ix.analytics</groupId>
+		<artifactId>business-analytics</artifactId>
+		<version>1.1-SNAPSHOT</version>
+	</parent>
+	<groupId>com.opentext.ix.analytics.util.extract</groupId>
+	<artifactId>MSArchiveExtractor</artifactId>
+
+	<repositories>
+		<repository>
+			<id>artifactory.gxsonline.net-snapshots</id>
+			<url> http://artifactory.gxsonline.net/libs-snapshot-local</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>artifactory.gxsonline.net-releases</id>
+			<name>artifactory.gxsonline.net-releases</name>
+			<url>http://artifactory.gxsonline.net/libs-release-local</url>
+		</repository>
+		<repository>
+			<id>artifactory.gxsonline.net</id>
+			<name>artifactory.gxsonline.net-ext-release-local</name>
+			<url>http://artifactory.gxsonline.net/ext-release-local</url>
+		</repository>
+	</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.spark</groupId>
+			<artifactId>spark-core_2.10</artifactId>
+			<version>1.4.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-compress</artifactId>
+			<version>1.10</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.gxs.dataloader</groupId>
+			<artifactId>FESI</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.gxs.dataloader</groupId>
+		    <artifactId>BizManager_Transformation_3_3_0_20151204_CumulativePatch_15</artifactId>
+		    <version>3.3.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.gxs.dataloader</groupId>
+			<artifactId>jlibs-core</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.gxs.dataloader</groupId>
+			<artifactId>jlibs-xml</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.gxs.dataloader</groupId>
+			<artifactId>jlibs-xmldog</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.gxs.dataloader</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.gxs.dataloader</groupId>
+			<artifactId>mapper-licensing</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.gxs.dataloader</groupId>
+			<artifactId>universal-bdd</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.gxs.dataloader</groupId>
+			<artifactId>xom</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20140107</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache</artifactId>
+			<version>2.10.1</version>
+		</dependency>
+
+        <dependency>
+             <groupId>com.gxs.mbbi</groupId>
+             <artifactId>edi2k</artifactId>
+             <version>10.02.88-20151022.131023-5</version>
+        </dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+				<executions>
+					<execution>
+						<id>assemble-all</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+
+</project>
